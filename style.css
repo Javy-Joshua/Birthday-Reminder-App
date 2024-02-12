@@ -1,0 +1,284 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.5)50%, rgba(0,0,0,0.5)50%), url(./img/1.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+.container {
+    inline-size: 80%;
+    margin: 0 auto;
+    /* added for nav-toggle positioning */
+    position: relative;
+}
+
+img {
+    max-width: 100%;
+}
+
+header {
+    /* background-color: goldenrod; */
+    text-align: center;
+    padding: 1em 0;
+}
+
+.logo {
+    padding-inline-start: 45px;
+}
+
+.logo-img {
+    inline-size: 45px;
+    block-size: 45px;
+}
+
+.nav__list {
+    text-transform: uppercase;
+    list-style-type: none;
+    
+}
+
+.nav__link {
+    text-decoration: none;
+    color: goldenrod;
+}
+
+.nav__item {
+   margin-block-start: 1em;
+}
+
+.nav__link:hover, .nav__link:focus {
+    opacity: 0.75;
+}
+
+.nav-toggle {
+  cursor: pointer;
+  border: 0;
+  inline-size: 3em;
+  block-size: 3em;
+  padding: 0;
+  border-radius: 50%;
+  background: goldenrod;
+  color: #fff;
+  transition: opacity 250ms ease;
+  position: absolute;
+  left: 0;
+}
+
+.nav-toggle:focus,
+.nav-toggle:hover {
+  opacity: 0.75;
+}
+
+.hamburger {
+  inline-size: 50%;
+  position: relative;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+  display: block;
+  margin: 0 auto;
+  block-size: 3px;
+  background: #fff;
+}
+
+.hamburger::before,
+.hamburger::after {
+  content: "";
+  inline-size: 100%;
+}
+
+.hamburger::before {
+  transform: translateY(-6px);
+}
+
+.hamburger::after {
+  transform: translateY(3px);
+}
+
+.nav {
+  visibility: hidden;
+  height: 0;
+  position: absolute;
+}
+
+.nav--visible {
+  visibility: visible;
+  height: auto;
+  position: relative;
+}
+
+
+main {
+  width: 1200px;
+    height: auto;
+    margin: auto; 
+    color: #fff;
+    position: relative; 
+}
+
+
+
+.content {
+    margin-block-start: 50px;
+}
+
+.content-header {
+   padding-left: 20px;
+   padding-bottom: 25px;
+   font-family: 'Arial';
+   letter-spacing: 1.2px;
+   line-height: 40px; 
+}
+
+.note {
+    padding-left: 20px;
+    padding-bottom: 25px;
+    font-family: 'Arial';
+    letter-spacing: 1.2px;
+    line-height: 30px;
+}
+
+.content span{
+    color: goldenrod;
+    font-size: 60px;
+}
+
+
+.form{
+    width: 300px;
+    height: 380;
+    background: linear-gradient(to top,rgba(0,0,0,0.8)50%,rgba(0,0,0,0.8)50% );
+    position: absolute;
+    top: -5px;
+    left: 870px;
+    border-radius: 10px;
+    padding: 25px;
+}
+
+.form h2{
+    width: 220px;
+    font-family: sans-serif;
+    text-align: center;
+    color: goldenrod;
+    font-size: 22px;
+    background-color: #fff;
+    border-radius: 10px;
+    margin: 2px;
+    padding: 8px;
+}
+
+.form input{
+    width: 240px;
+     height: 35px;
+     background-color: rgba(0,0,0,0);
+     border-bottom: 1px solid goldenrod;
+     border-right: none;
+     border-left: none;
+     border-top: none;
+     color: #fff;
+     font-size: 15px;
+     letter-spacing: 1px;
+     margin-top: 30px;
+     font-family: sans-serif;
+}
+
+.form input:focus{
+    outline: none;
+}
+
+::placeholder{
+    color: #fff;
+    font-family: Arial;
+}
+
+.btnn{
+    width: 240px;
+    height: 40px;
+    background-color: goldenrod;
+    border: none;
+    margin-top: 30px;
+    font-size: 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #fff;
+    transition: 0.4s ease;
+}
+
+.btnn:hover{
+    background-color: #fff;
+    color: #ff7200;
+}
+
+.btnn a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+@media (min-width: 800px) {
+  .nav-toggle {
+    display: none;
+  }
+
+  .nav {
+    visibility: visible;
+    display: flex;
+    block-size: auto;
+    justify-content: center;
+    padding-inline-start: 20%;
+  }
+
+  .nav__list {
+    display: flex;
+    margin-inline-start: 100px;
+    gap: 10px;
+  }
+
+  /* .nav__list--secondary {
+    display: flex;
+    margin-inline-start: 0;
+  } */
+
+  .logo {
+    display: flex;
+    justify-content: flex-start;
+    padding-inline: 0;
+  }
+
+  .nav__item {
+    padding-inline: 1em;
+    margin: 0;
+  }
+
+
+ img{
+  block-size: 50%;
+ }
+
+
+ .row{
+    display: flex;
+    gap: 10px;
+  }
+
+  .container {
+  inline-size: 90%;
+  margin: 0 auto;
+  
+}
+
+}
