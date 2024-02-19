@@ -6,7 +6,7 @@
 
 body {
     width: 100%;
-    background: linear-gradient(to top, rgba(0,0,0,0.5)50%, rgba(0,0,0,0.5)50%), url(./img/1.jpg);
+    background: linear-gradient(to top, rgba(0,0,0,0.5)50%, rgba(0,0,0,0.5)50%), url(/img/1.jpg);
     background-position: center;
     background-size: cover;
 }
@@ -167,9 +167,9 @@ main {
     width: 220px;
     font-family: sans-serif;
     text-align: center;
-    color: goldenrod;
+    color: #fff;
     font-size: 22px;
-    background-color: #fff;
+    background-color: goldenrod;
     border-radius: 10px;
     margin: 2px;
     padding: 8px;
@@ -205,7 +205,7 @@ main {
     background-color: goldenrod;
     border: none;
     margin-top: 30px;
-    font-size: 18px;
+    /* font-size: 18px; */
     border-radius: 10px;
     cursor: pointer;
     color: #fff;
@@ -213,15 +213,19 @@ main {
 }
 
 .btnn:hover{
-    background-color: #fff;
+    /* background-color: #fff; */
     color: #ff7200;
 }
 
-.btnn a {
+.btnn input {
     text-decoration: none;
-    color: #000;
+    color: #fff;
     font-weight: bold;
+    border: none;
+    font-size: 22px;
+    margin-block: 5px;
 }
+
 
 
 

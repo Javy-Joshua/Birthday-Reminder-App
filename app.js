@@ -3,6 +3,7 @@ const cron = require("node-cron");
 const mailer = require("nodemailer");
 const UserModel = require("./model/user.model");
 const userRouter = require('./users/users.router')
+const viewRouter = require('./views/views.router')
 const morgan = require('morgan')
 
 const app = express();
@@ -11,11 +12,14 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'))
+app.set("view engine", "ejs")
+app.use(express.static("public"))
 
-app.use('/', userRouter)
+app.use('/users', userRouter)
+app.use("/api", viewRouter);
 
-app.use('/good', (req, res) => {
-  console.log('we good')
+app.use('/home', (req, res) => {
+  res.render("homepage")
 })
 
 
@@ -43,10 +47,10 @@ cron.schedule("* * 07 * * *", () => {
   UserModel.findAll((element) => {
     //Splitting the Date if Birth (DOB)
     // to get the month and Date
-    let d = element.dob.split("-");
+    let d = element.DOB.split("/-|T/");
+    let dD = +d[2]; // for the day
     let dM = +d[1]; //for month
-    let dD = +d[0]; // for the day
-    let age = dateYear - +d[2];
+    let age = dateYear - +d[0];
     console.log(typeof dM); //return number
 
     // Sending the Mail

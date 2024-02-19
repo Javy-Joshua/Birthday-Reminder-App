@@ -34,7 +34,7 @@ const CreateUser = async (req, res) => {
 
       let dob;
       try {
-        dob = DateTime.fromFormat(userfromRequest.DOB, "MM-dd-yyyy", {
+        dob = DateTime.fromFormat(userfromRequest.DOB, "yyyy-MM-dd", {
           zone: "Africa/Lagos",
         });
       } catch (error) {
@@ -43,7 +43,7 @@ const CreateUser = async (req, res) => {
           error: error.message,
         });
       }
-
+      
       if (!dob.isValid) {
         return res.status(400).json({
           message: "Invalid date",
@@ -67,18 +67,25 @@ const CreateUser = async (req, res) => {
       });
       console.log(user);
 
-      return res.status(201).json({
-        message: "Details successfully created",
-        user,
-      });
+      return res.redirect("/api/created");
+
+      // return res.status(201).json({
+      //   message: "Details successfully created",
+      //   user,
+      // });
     }
     catch (error) {
         logger.error(error.message)
-        return res.status(500).json({
-            message: "Server Error",
-            data: null,
-            jky: "controller"
-        })
+        return res.render("homepage", {
+          message: "Server Error",
+          ...req.body,
+        });
+
+        // return res.status(500).json({
+        //     message: "Server Error",
+        //     data: null,
+        //     jky: "controller"
+        // })
     }
 }
 
